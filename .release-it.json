@@ -1,0 +1,20 @@
+{
+  "git": {
+    "commitArgs": ["--signoff"],
+    "commitMessage": "chore: release v${version}"
+  },
+  "github": {
+    "release": true
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": "conventionalcommits",
+      "infile": "CHANGELOG.md",
+      "header": "# Changelog\n\nAll notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines."
+    }
+  },
+  "hooks": {
+    "before:init": ["npm test"],
+    "after:bump": "npm run build"
+  }
+}
